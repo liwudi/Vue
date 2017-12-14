@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Vue-demo</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue"></script>
+</head>
+<body>
+<div id="app">
+    <p v-if="message">message为true</p>
+    <p v-if="!message">message为false</p>
+</div>
+<script>
+    new Vue({
+        el:'#app',
+        data:{
+            message:true
+        }
+    });
+</script>
+</body>
+</html>

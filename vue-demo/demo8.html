@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Vue-demo</title>
+    <style>
+        .fade-enter-active, .fade-leave-active {
+            transition: opacity .5s
+        }
+        .fade-enter, .fade-leave-to /* .fade-leave-active in below version 2.1.8 */ {
+            opacity: 0
+        }
+    </style>
+    <script src="https://cdn.jsdelivr.net/npm/vue"></script>
+</head>
+<body>
+<div id="app">
+
+    <button v-on:click="clickEvent">切换</button>
+
+    <transition name="fade">
+        <p v-if="isShow">
+            {{message}}
+        </p>
+    </transition>
+
+</div>
+<script>
+    new Vue({
+        el:'#app',
+        data:{
+            isShow: true,
+            message:'hello world!'
+        },
+        methods:{
+            clickEvent: function () {
+                this.isShow = !this.isShow
+            }
+        }
+    });
+</script>
+</body>
+</html>

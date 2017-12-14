@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue"></script>
+</head>
+<body>
+<div id="app" v-bind:title="message">鼠标悬停几秒钟查看此处动态绑定的提示信息！</div>
+<script>
+    new Vue({
+        el:'#app',
+        data:{
+            message:'页面加载于 ' + new Date().toLocaleString()
+        }
+    });
+</script>
+</body>
+</html>
