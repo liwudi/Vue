@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Vue-demo</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue"></script>
+</head>
+<body>
+<div id="app">
+    <div>{{bar}}</div>
+    <my-comp :foo.sync="bar"></my-comp>
+</div>
+<script>
+    Vue.component('my-comp', {
+        template: '<div @click="increment">{{copyFoo}}点我+1</div>',
+        data: function() {
+            return {copyFoo: this.foo}
+        },
+        props: ['foo'],
+        methods: {
+            increment: function() {
+                this.$emit('update:foo', ++this.copyFoo);
+            }
+        }
+    });
+    new Vue({
+        el: '#app',
+        data: {bar: 0}
+    });
+</script>
+</body>
+</html>

@@ -7,25 +7,17 @@
 </head>
 <body>
 <div id="app">
-    <ol>
-        <!--使用组件-->
-        <todo-item
-                v-for="item in todoList"
-                v-bind:todo="item"
-        ></todo-item>
-    </ol>
 
+    <todo-item></todo-item>
 </div>
 <script>
-    //定义一个最简单的组件
-    Vue.component('todo-item',{
-        props:['todo'],
-        template:'<li>name:{{todo.name}},age:{{todo.age}}</li>'
-    });
+    var Child = {
+        template: '<div>A custom component!</div>'
+    };
     new Vue({
         el:'#app',
-        data:{
-            todoList:[{name:'张三',age:23},{name:'李四',age:24},{name:'王五',age:25}]
+        components:{
+            'todo-item': Child
         }
     });
 </script>

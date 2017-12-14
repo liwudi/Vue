@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Vue-demo</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue"></script>
+</head>
+<body>
+<div id="app">
+
+    <todo-com v-bind="todo"></todo-com>
+</div>
+<script>
+    //定义一个最简单的组件
+    Vue.component('todo-com',{
+        props:['text','isComplete'],
+        template:'<h2>I has {{isComplete ? "completed ":"not completed "}}{{text}}</h2>'
+    });
+    new Vue({
+        el:'#app',
+        data: {
+            todo:{
+                text: 'Learn Vue',
+                isComplete: false
+            }
+        }
+    });
+</script>
+</body>
+</html>

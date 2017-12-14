@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Vue-demo</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue"></script>
+</head>
+<body>
+<div id="app">
+    <foo-component v-bind:foo-message="fooMessage"></foo-component>
+</div>
+<script>
+    var fooComponent = {
+        props: {
+            fooMessage: Number
+        },
+        template: '<div> {{ fooMessage }} </div>'
+    };
+
+     var vm = new Vue({
+         components: {
+            'foo-component': fooComponent
+         },
+         el: '#app',
+         data: {
+             fooMessage: 'str'
+         }
+     });
+</script>
+</body>
+</html>

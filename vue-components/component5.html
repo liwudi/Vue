@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Vue-demo</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue"></script>
+</head>
+<body>
+<div id="app">
+    <ol>
+        <!--使用组件-->
+        <todo-item
+                my-todo="hello"
+        ></todo-item>
+    </ol>
+
+</div>
+<script>
+    //定义一个最简单的组件
+    Vue.component('todo-item',{
+        props:['myTodo'],
+        template:'<h2>{{myTodo}}</h2>'
+    });
+    new Vue({
+        el:'#app'
+    });
+</script>
+</body>
+</html>

@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Vue-demo</title>
+    <style>
+        .color1{
+            color: red;
+        }
+        .color2{
+            color: green;
+        }
+    </style>
+    <script src="https://cdn.jsdelivr.net/npm/vue"></script>
+</head>
+<body>
+<div id="app">
+    <button-com v-on:parent="myEvent"></button-com>
+</div>
+<script>
+    var Child = {
+        template:'<button v-on:click="childEvent"> {{ num }} </button>',
+        data: function () {
+            return {
+                num: 0
+            }
+        },
+        methods:{
+            childEvent: function () {
+                this.num += 1;
+                this.$emit("parent",this.num);
+            }
+        }
+    };
+    var vm = new Vue({
+        el:'#app',
+        data:{
+            total: 0
+        },
+        components: {
+            'button-com': Child
+        },
+        methods: {
+            myEvent: function (data) {
+                console.log(data);
+            }
+        }
+    })
+</script>
+</body>
+</html>

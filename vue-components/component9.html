@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Vue-demo</title>
+    <style>
+        .color1{
+            color: red;
+        }
+        .color2{
+            color: green;
+        }
+    </style>
+    <script src="https://cdn.jsdelivr.net/npm/vue"></script>
+</head>
+<body>
+<div id="app">
+    <foo-component class="color2" v-bind:foo-message="fooMessage"></foo-component>
+</div>
+<script>
+    var fooComponent = {
+        props: ['fooMessage'],
+        template: '<div class="color1"> {{ fooMessage }} </div>'
+    };
+
+     var vm = new Vue({
+         components: {
+            'foo-component': fooComponent
+         },
+         el: '#app',
+         data: {
+             fooMessage: 12345
+         }
+     });
+</script>
+</body>
+</html>
