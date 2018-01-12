@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Vue-demo</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue"></script>
+</head>
+<body>
+<div id="app">
+    <child-component>
+        {{message}}
+    </child-component>
+
+</div>
+<script>
+    Vue.component('child-component',{
+        template: "<div>" +
+        "<h2>我是子组件的标题</h2>" +
+        "<slot>" +
+        "只有在没有要分发的内容时才会显示。" +
+        "</slot>" +
+        "</div>"
+    });
+
+    new Vue({
+        el: '#app',
+        data: {message: 'hello1'}
+    });
+
+    function A(name){
+        this.name = name;
+    }
+    function B(name){
+        A.call(B);
+    }
+    //现在B继承A的name属性：
+    var objB = new B("liwudi");
+    console.log(objB);//‘liwudi’
+</script>
+</body>
+</html>

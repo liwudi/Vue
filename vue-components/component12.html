@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Vue-demo</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue"></script>
+</head>
+<body>
+<div id="app">
+    <input type="text" v-model="something">
+    <p>{{something}}</p>
+
+    <hr/>
+
+    <input
+            type="text"
+            :value="something2"
+            @input="something2=$event.target.value"
+    >
+    <p>{{something2}}</p>
+</div>
+<script>
+    new Vue({
+        el:'#app',
+        data: {
+            something:'hello world!',
+            something2:'hello world2!'
+        }
+    })
+</script>
+</body>
+</html>

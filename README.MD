@@ -32,3 +32,30 @@
     component10是一个自定义事件的示例，子组件向父组件传值。
     
     component11是一个父元素和子元素（通过.sync）双向绑定的示例。
+    
+    component12是一个v-model的本质演示。（v-model的本质是v-bind和v-on的语法糖）。
+    
+    component13
+    
+    component14是一个组件通信的示例，两个非父子组件相互之间通信。
+    
+    component15是一个组件使用插槽分发内容的示例
+    
+    
+### vue-router部分
+
+专门使用一个个的 vue-router 的实例来讲解路由
+
+##### router1，一个最简单的路由示例
+
+##### router2，
+
+
+### vuex-demo部分
+
+这个是专门学习vuex数据管理的demo
+
+##### vuex1，一个最简单的vuex示例
+
+
+

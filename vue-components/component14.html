@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Vue-demo</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue"></script>
+</head>
+<body>
+<div id="app">
+    <app-header></app-header>
+    <app-footer></app-footer>
+</div>
+<script>
+    var bus = new Vue();
+    Vue.component('app-header',{
+        template: '<p v-on:click="clickEvent">我是header</p>',
+        methods: {
+            clickEvent: function () {
+                bus.$emit('id-selected', 1);
+            }
+        }
+    });
+    Vue.component('app-footer',{
+        template:'<p>我是footer,{{message}}</p>',
+        methods: {
+
+        },
+        data: function () {
+            return {
+                message: "hello! 我是组件footer"
+            }
+        },
+        created: function () {
+            bus.$on('id-selected', function (id) {
+                console.log(id);
+                this.message = id;
+            }.bind(this))
+        }
+    });
+
+    new Vue({
+        el: '#app',
+        data: {message: 'hello1'}
+    });
+
+</script>
+</body>
+</html>

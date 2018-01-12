@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>vuex学习</title>
+    <script src="https://unpkg.com/vue/dist/vue.js"></script>
+    <script src="https://unpkg.com/vue-router/dist/vue-router.js"></script>
+    <script src="https://unpkg.com/vuex"></script>
+</head>
+<body>
+<div id="app">
+    <p>{{ count }}</p>
+    <p>
+        <button @click="increment">+</button>
+        <button @click="decrement">-</button>
+    </p>
+</div>
+</body>
+<script>
+    const store = new Vuex.Store({
+        state: {
+            count: 0
+        },
+        mutations: {
+            increment (state) {
+                state.count++
+            },
+            decrement (state) {
+                state.count--
+            }
+        },
+        actions: {
+            increment (context) {
+                console.log(context)
+                context.commit('increment')
+            }
+        }
+    })
+
+    new Vue({
+        el:'#app',
+        store,
+        computed:{
+            count(){
+                return store.state.count;
+            }
+        },
+        methods:{
+            increment(){
+                store.dispatch('increment')
+            },
+            decrement () {
+                store.commit('decrement')
+            }
+        }
+    })
+</script>
+
+</html>

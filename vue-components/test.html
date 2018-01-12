@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Vue-demo</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue"></script>
+</head>
+<body>
+<div id="app">
+
+
+</div>
+<script>
+    function FunA(name){
+        this.name = name;
+    }
+    FunA.prototype.getName = function () {
+        console.log(this.name);
+    }
+    function FunB(name){
+        FunA.call(this,name);
+    }
+    FunB.prototype = FunA.prototype;
+    //现在B继承A的name属性：
+    var objB = new FunB("liwudi");
+    console.log(objB.name);//‘liwudi’
+    objB.getName();
+</script>
+</body>
+</html>
